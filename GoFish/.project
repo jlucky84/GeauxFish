@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>GoFish</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>src/CardDeck01.jpg</name>
+			<type>1</type>
+			<location>C:/Users/jl533y/workspace/GoFish/images/CardDeck01.jpg</location>
+		</link>
+		<link>
+			<name>src/FeltTable.jpg</name>
+			<type>1</type>
+			<location>C:/Users/jl533y/workspace/GoFish/images/FeltTable.jpg</location>
+		</link>
+		<link>
+			<name>src/Images/2c.jpg</name>
+			<type>1</type>
+			<location>C:/Users/jl533y/workspace/GoFish/images/2c.jpg</location>
+		</link>
+		<link>
+			<name>src/Images/CardFaceDown.jpg</name>
+			<type>1</type>
+			<location>C:/Users/jl533y/workspace/GoFish/images/CardFaceDown.jpg</location>
+		</link>
+	</linkedResources>
+</projectDescription>

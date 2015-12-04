@@ -1,0 +1,1060 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project name="WedgeManager" resourceRoot="" soapui-version="4.0.1.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="WedgeManagerSoapBinding" type="wsdl" bindingName="{http://payload.wedge.um.idm.sbc.com}WedgeManagerSoapBinding" soapVersion="1_1" anonymous="optional" definition="file:/C:/Users/jl533y/Documents/Downloads/WedgeManager.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:\C:\Users\jl533y\Documents\Downloads\WedgeManager.wsdl"><con:part><con:url>file:\C:\Users\jl533y\Documents\Downloads\WedgeManager.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://payload.wedge.um.idm.sbc.com" xmlns:impl="http://payload.wedge.um.idm.sbc.com" xmlns:intf="http://payload.wedge.um.idm.sbc.com" xmlns:tns2="http://tmc.nn.idm.sbc.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsi="http://ws-i.org/profiles/basic/1.1/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <schema targetNamespace="http://tmc.nn.idm.sbc.com" xmlns="http://www.w3.org/2001/XMLSchema">
+      <complexType name="Context">
+        <sequence>
+          <element name="blockTime" type="xsd:long"/>
+          <element name="ivCreds" nillable="true" type="xsd:string"/>
+          <element name="majorVersion" type="xsd:int"/>
+          <element name="minorVersion" type="xsd:int"/>
+          <element name="adminPassword" nillable="true" type="xsd:string"/>
+          <element name="revision" type="xsd:int"/>
+          <element name="async" type="xsd:boolean"/>
+          <element name="adminId" nillable="true" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="RootInputPayLoad">
+        <sequence/>
+      </complexType>
+      <complexType name="RootOutputPayLoad">
+        <sequence>
+          <element name="apiName" nillable="true" type="xsd:string"/>
+          <element name="deprecated" type="xsd:boolean"/>
+          <element name="messageCount" type="xsd:int"/>
+          <element name="messages" nillable="true" type="tns2:ArrayOf_tns2_MessagePayLoad"/>
+          <element name="referenceId" type="xsd:long"/>
+          <element name="result" type="xsd:boolean"/>
+          <element name="versionName" nillable="true" type="xsd:string"/>
+          <element name="network" type="xsd:boolean"/>
+        </sequence>
+      </complexType>
+      <complexType name="ArrayOf_tns2_MessagePayLoad">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="MessagePayLoad" nillable="true" type="tns2:MessagePayLoad"/>
+        </sequence>
+      </complexType>
+      <complexType name="MessagePayLoad">
+        <sequence>
+          <element name="cause" nillable="true" type="tns2:MessagePayLoad"/>
+          <element name="message" nillable="true" type="xsd:string"/>
+          <element name="type" nillable="true" type="xsd:string"/>
+        </sequence>
+      </complexType>
+    </schema>
+    <schema targetNamespace="http://payload.wedge.um.idm.sbc.com" xmlns="http://www.w3.org/2001/XMLSchema">
+      <import namespace="http://tmc.nn.idm.sbc.com"/>
+      <element name="updateServiceResponse">
+        <complexType>
+          <sequence>
+            <element name="updateServiceReturn" nillable="true" type="impl:MPSOutputPayLoad"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="updateDevices">
+        <complexType>
+          <sequence>
+            <element name="ctx" nillable="true" type="tns2:Context"/>
+            <element name="input" nillable="true" type="impl:UpdateDevicesInputPayLoad"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="updateDevicesResponse">
+        <complexType>
+          <sequence>
+            <element name="updateDevicesReturn" nillable="true" type="impl:MPSOutputPayLoad"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="updateAliasList">
+        <complexType>
+          <sequence>
+            <element name="ctx" nillable="true" type="tns2:Context"/>
+            <element name="input" nillable="true" type="impl:UpdateAliasListInputPayLoad"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="updateAliasListResponse">
+        <complexType>
+          <sequence>
+            <element name="updateAliasListReturn" nillable="true" type="impl:MPSOutputPayLoad"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="deleteUser">
+        <complexType>
+          <sequence>
+            <element name="ctx" nillable="true" type="tns2:Context"/>
+            <element name="input" nillable="true" type="impl:DeleteUserInputPayLoad"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="deleteUserResponse">
+        <complexType>
+          <sequence>
+            <element name="deleteUserReturn" nillable="true" type="impl:MPSOutputPayLoad"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="getDevices">
+        <complexType>
+          <sequence>
+            <element name="ctx" nillable="true" type="tns2:Context"/>
+            <element name="input" nillable="true" type="impl:GetDevicesInputPayLoad"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="getDevicesResponse">
+        <complexType>
+          <sequence>
+            <element name="getDevicesReturn" nillable="true" type="impl:GetDevicesOutputPayLoad"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="updateDevicesList">
+        <complexType>
+          <sequence>
+            <element name="ctx" nillable="true" type="tns2:Context"/>
+            <element name="input" nillable="true" type="impl:UpdateDevicesListInputPayLoad"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="updateDevicesListResponse">
+        <complexType>
+          <sequence>
+            <element name="updateDevicesListReturn" nillable="true" type="impl:MPSOutputPayLoad"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="updateServiceList">
+        <complexType>
+          <sequence>
+            <element name="ctx" nillable="true" type="tns2:Context"/>
+            <element name="input" nillable="true" type="impl:UpdateServiceListInputPayLoad"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="updateServiceListResponse">
+        <complexType>
+          <sequence>
+            <element name="updateServiceListReturn" nillable="true" type="impl:MPSOutputPayLoad"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="getUser">
+        <complexType>
+          <sequence>
+            <element name="ctx" nillable="true" type="tns2:Context"/>
+            <element name="input" nillable="true" type="impl:GetUserInputPayLoad"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="getUserResponse">
+        <complexType>
+          <sequence>
+            <element name="getUserReturn" nillable="true" type="impl:GetMPSUserOutputPayLoad"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="updateUser">
+        <complexType>
+          <sequence>
+            <element name="ctx" nillable="true" type="tns2:Context"/>
+            <element name="input" nillable="true" type="impl:UpdateUserInputPayLoad"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="updateUserResponse">
+        <complexType>
+          <sequence>
+            <element name="updateUserReturn" nillable="true" type="impl:MPSOutputPayLoad"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="addUser">
+        <complexType>
+          <sequence>
+            <element name="ctx" nillable="true" type="tns2:Context"/>
+            <element name="input" nillable="true" type="impl:AddUserInputPayLoad"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="addUserResponse">
+        <complexType>
+          <sequence>
+            <element name="addUserReturn" nillable="true" type="impl:MPSOutputPayLoad"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="updateService">
+        <complexType>
+          <sequence>
+            <element name="ctx" nillable="true" type="tns2:Context"/>
+            <element name="input" nillable="true" type="impl:UpdateServiceInputPayLoad"/>
+          </sequence>
+        </complexType>
+      </element>
+      <complexType name="UpdateServiceInputPayLoad">
+        <complexContent>
+          <extension base="impl:MPSInputPayLoad">
+            <sequence>
+              <element name="services" nillable="true" type="impl:ArrayOfService"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="MPSInputPayLoad">
+        <complexContent>
+          <extension base="tns2:RootInputPayLoad">
+            <sequence>
+              <element name="userId" nillable="true" type="xsd:string"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="Service">
+        <sequence>
+          <element name="serviceId" nillable="true" type="xsd:string"/>
+          <element name="serviceStatus" nillable="true" type="xsd:string"/>
+          <element name="serviceType" nillable="true" type="xsd:string"/>
+          <element name="portalProvider" nillable="true" type="xsd:string"/>
+          <element name="SOR" nillable="true" type="xsd:string"/>
+          <element name="mainCTN" nillable="true" type="xsd:string"/>
+          <element name="moSubID" nillable="true" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="ArrayOfService">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="Service" nillable="true" type="impl:Service"/>
+        </sequence>
+      </complexType>
+      <complexType name="MPSOutputPayLoad">
+        <complexContent>
+          <extension base="tns2:RootOutputPayLoad">
+            <sequence>
+              <element name="userId" nillable="true" type="xsd:string"/>
+              <element name="appCategoryCode" nillable="true" type="xsd:string"/>
+              <element name="appStatusCode" nillable="true" type="xsd:string"/>
+              <element name="appStatusMsg" nillable="true" type="xsd:string"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="UpdateDevicesInputPayLoad">
+        <complexContent>
+          <extension base="tns2:RootInputPayLoad">
+            <sequence>
+              <element name="UDevices" nillable="true" type="impl:ArrayOfDevice"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="Device">
+        <sequence>
+          <element name="deviceId" nillable="true" type="xsd:string"/>
+          <element name="userId" nillable="true" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="ArrayOfDevice">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="Device" nillable="true" type="impl:Device"/>
+        </sequence>
+      </complexType>
+      <complexType name="UpdateAliasListInputPayLoad">
+        <complexContent>
+          <extension base="tns2:RootInputPayLoad">
+            <sequence>
+              <element name="SLID" nillable="true" type="xsd:string"/>
+              <element name="addAliases" nillable="true" type="impl:ArrayOfAlias"/>
+              <element name="deleteAliases" nillable="true" type="impl:ArrayOfAlias"/>
+              <element name="detachAliases" nillable="true" type="impl:ArrayOfAlias"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="Alias">
+        <sequence>
+          <element name="userId" nillable="true" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="ArrayOfAlias">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="Alias" nillable="true" type="impl:Alias"/>
+        </sequence>
+      </complexType>
+      <complexType name="DeleteUserInputPayLoad">
+        <complexContent>
+          <extension base="impl:MPSInputPayLoad">
+            <sequence/>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="GetDevicesInputPayLoad">
+        <complexContent>
+          <extension base="tns2:RootInputPayLoad">
+            <sequence>
+              <element name="gDevices" nillable="true" type="impl:ArrayOfOnlyDevice"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="OnlyDevice">
+        <sequence>
+          <element name="deviceId" nillable="true" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <complexType name="ArrayOfOnlyDevice">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="OnlyDevice" nillable="true" type="impl:OnlyDevice"/>
+        </sequence>
+      </complexType>
+      <complexType name="GetDevicesOutputPayLoad">
+        <complexContent>
+          <extension base="impl:MPSOutputPayLoad">
+            <sequence>
+              <element name="devices" nillable="true" type="impl:ArrayOfDevice"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="UpdateDevicesListInputPayLoad">
+        <complexContent>
+          <extension base="tns2:RootInputPayLoad">
+            <sequence>
+              <element name="addDevices" nillable="true" type="impl:ArrayOfDevice"/>
+              <element name="deleteDevices" nillable="true" type="impl:ArrayOfOnlyDevice"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="UpdateServiceListInputPayLoad">
+        <complexContent>
+          <extension base="impl:MPSInputPayLoad">
+            <sequence>
+              <element name="addServices" nillable="true" type="impl:ArrayOfService"/>
+              <element name="deleteServices" nillable="true" type="impl:ArrayOfService"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="GetUserInputPayLoad">
+        <complexContent>
+          <extension base="impl:MPSInputPayLoad">
+            <sequence>
+              <element name="idType" type="string"/>
+              <element name="dtv_acctNumber" type="string"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="GetMPSUserOutputPayLoad">
+        <complexContent>
+          <extension base="impl:MPSOutputPayLoad">
+            <sequence>
+              <element name="devices" nillable="true" type="impl:ArrayOfDevice"/>
+              <element name="GUID" nillable="true" type="xsd:string"/>
+              <element name="parentMemberId" nillable="true" type="xsd:string"/>
+              <element name="password" nillable="true" type="xsd:string"/>
+              <element name="passwordType" nillable="true" type="xsd:string"/>
+              <element name="services" nillable="true" type="impl:ArrayOfService"/>
+              <element name="YToken" nillable="true" type="xsd:string"/>
+              <element name="isPasswordValid" nillable="true" type="xsd:string"/>
+              <element name="proofingVersion" nillable="true" type="xsd:string"/>
+              <element name="md5Password" nillable="true" type="xsd:string"/>
+              <element name="ctETToken" nillable="true" type="xsd:string"/>
+              <element name="SLID" nillable="true" type="xsd:string"/>
+              <element name="aliases" nillable="true" type="impl:ArrayOfAlias"/>
+              <element name="mainCTN" nillable="true" type="xsd:string"/>
+              <element name="moSubID" nillable="true" type="xsd:string"/>
+              <element name="migrationIndicator" type="string"/>
+              <element name="dtv_dotcomID" type="string"/>
+              <element name="dtv_login" type="string"/>
+              <element name="dtv_emailDotcomID" type="string"/>
+              <element name="dtv_acctNumber" type="string"/>
+              <element name="dtv_uban" type="string"/>
+              <element name="dtv_profileLock" type="string"/>
+              <element name="dtv_profileLockDate" type="string"/>
+              <element name="dtv_idStatus" type="string"/>
+              <element name="dtv_zipcode" type="string"/>
+              <element name="dtv_firstname" type="string"/>
+              <element name="dtv_lastname" type="string"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="UpdateUserInputPayLoad">
+        <complexContent>
+          <extension base="impl:MPSInputPayLoad">
+            <sequence>
+              <element name="password" nillable="true" type="xsd:string"/>
+              <element name="YToken" nillable="true" type="xsd:string"/>
+              <element name="passwordType" nillable="true" type="xsd:string"/>
+              <element name="isPasswordDirty" nillable="true" type="xsd:string"/>
+              <element name="proofingVersion" nillable="true" type="xsd:string"/>
+              <element name="md5Password" nillable="true" type="xsd:string"/>
+              <element name="ctETToken" nillable="true" type="xsd:string"/>
+              <element name="GUID" nillable="true" type="xsd:string"/>
+              <element name="migrationIndicator" type="string"/>
+              <element name="idType" type="string"/>
+              <element name="dtv_acctNumber" type="string"/>
+              <element name="dtv_idStatus" type="string"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="AddUserInputPayLoad">
+        <complexContent>
+          <extension base="impl:MPSInputPayLoad">
+            <sequence>
+              <element name="slidIndicator" nillable="true" type="xsd:string"/>
+              <element name="GUID" nillable="true" type="xsd:string"/>
+              <element name="parentMemberId" nillable="true" type="xsd:string"/>
+              <element name="password" nillable="true" type="xsd:string"/>
+              <element name="YToken" nillable="true" type="xsd:string"/>
+              <element name="services" nillable="true" type="impl:ArrayOfService"/>
+              <element name="passwordType" nillable="true" type="xsd:string"/>
+              <element name="proofingVersion" nillable="true" type="xsd:string"/>
+              <element name="isPasswordDirty" nillable="true" type="xsd:string"/>
+              <element name="md5Password" nillable="true" type="xsd:string"/>
+              <element name="ctETToken" nillable="true" type="xsd:string"/>
+              <element name="tosFlag" type="string"/>
+              <element name="migrationIndicator" type="string"/>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <element name="addDtvBillingIdProfile">
+        <complexType>
+          <sequence>
+            <element name="ctx" type="tns2:Context"/>
+            <element name="input" type="impl:addDtvBillingIdProfileInputPayLoad"></element>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="addDtvBillingIdProfileResponse">
+        <complexType>
+          <sequence>
+            <element name="addDtvBillingIdProfileReturn" type="impl:MPSOutputPayLoad"></element>
+          </sequence>
+        </complexType>
+      </element>
+      <complexType name="MPSOutputPayLoad1"/>
+      <complexType name="addDtvBillingIdProfileInputPayLoad">
+        <complexContent>
+          <extension base="tns2:RootInputPayLoad">
+            <sequence>
+              <element maxOccurs="1" minOccurs="1" name="dtv_uban" type="string"></element>
+              <element maxOccurs="1" minOccurs="1" name="dtv_acctNumber" type="string"></element>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <complexType name="deleteDtvBillingIdProfileInputPayLoad">
+        <complexContent>
+          <extension base="tns2:RootInputPayLoad">
+            <sequence>
+              <element maxOccurs="1" minOccurs="1" name="dtv_uban" type="string"></element>
+            </sequence>
+          </extension>
+        </complexContent>
+      </complexType>
+      <element name="deleteDtvBillingIdProfile">
+        <complexType>
+          <sequence>
+            <element name="ctx" type="tns2:Context"/>
+            <element name="input" type="impl:deleteDtvBillingIdProfileInputPayLoad"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="deleteDtvBillingIdProfileResponse">
+        <complexType>
+          <sequence>
+            <element name="deleteDtvBillingIdProfileReturn" type="impl:MPSOutputPayLoad"/>
+          </sequence>
+        </complexType>
+      </element>
+    </schema>
+  </wsdl:types>
+  <wsdl:message name="addUserRequest">
+    <wsdl:part element="impl:addUser" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="updateUserResponse">
+    <wsdl:part element="impl:updateUserResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="updateAliasListResponse">
+    <wsdl:part element="impl:updateAliasListResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="deleteUserResponse">
+    <wsdl:part element="impl:deleteUserResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="updateDevicesListResponse">
+    <wsdl:part element="impl:updateDevicesListResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="updateUserRequest">
+    <wsdl:part element="impl:updateUser" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="updateServiceResponse">
+    <wsdl:part element="impl:updateServiceResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="updateDevicesListRequest">
+    <wsdl:part element="impl:updateDevicesList" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="updateServiceListResponse">
+    <wsdl:part element="impl:updateServiceListResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="updateServiceListRequest">
+    <wsdl:part element="impl:updateServiceList" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getDevicesRequest">
+    <wsdl:part element="impl:getDevices" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="updateDevicesResponse">
+    <wsdl:part element="impl:updateDevicesResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getDevicesResponse">
+    <wsdl:part element="impl:getDevicesResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getUserRequest">
+    <wsdl:part element="impl:getUser" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="updateAliasListRequest">
+    <wsdl:part element="impl:updateAliasList" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="deleteUserRequest">
+    <wsdl:part element="impl:deleteUser" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getUserResponse">
+    <wsdl:part element="impl:getUserResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="addUserResponse">
+    <wsdl:part element="impl:addUserResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="updateServiceRequest">
+    <wsdl:part element="impl:updateService" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="updateDevicesRequest">
+    <wsdl:part element="impl:updateDevices" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="addDtvBillingIdProfileRequest">
+    <wsdl:part element="impl:addDtvBillingIdProfile" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addDtvBillingIdProfileResponse">
+    <wsdl:part element="impl:addDtvBillingIdProfileResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="deleteDtvBillingIdProfileRequest">
+    <wsdl:part element="impl:deleteDtvBillingIdProfile" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteDtvBillingIdProfileResponse">
+    <wsdl:part element="impl:deleteDtvBillingIdProfileResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="WedgeManager">
+    <wsdl:operation name="deleteDtvBillingIdProfile">
+      <wsdl:input message="impl:deleteDtvBillingIdProfileRequest" name="deleteDtvBillingIdProfileRequest"/>
+      <wsdl:output message="impl:deleteDtvBillingIdProfileResponse" name="deleteDtvBillingIdProfileResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="addDtvBillingIdProfile">
+      <wsdl:input message="impl:addDtvBillingIdProfileRequest" name="addDtvBillingIdProfileRequest"/>
+      <wsdl:output message="impl:addDtvBillingIdProfileResponse" name="addDtvBillingIdProfileResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="updateService">
+      <wsdl:input message="impl:updateServiceRequest" name="updateServiceRequest"/>
+      <wsdl:output message="impl:updateServiceResponse" name="updateServiceResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="updateDevices">
+      <wsdl:input message="impl:updateDevicesRequest" name="updateDevicesRequest"/>
+      <wsdl:output message="impl:updateDevicesResponse" name="updateDevicesResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="updateAliasList">
+      <wsdl:input message="impl:updateAliasListRequest" name="updateAliasListRequest"/>
+      <wsdl:output message="impl:updateAliasListResponse" name="updateAliasListResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="deleteUser">
+      <wsdl:input message="impl:deleteUserRequest" name="deleteUserRequest"/>
+      <wsdl:output message="impl:deleteUserResponse" name="deleteUserResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="getDevices">
+      <wsdl:input message="impl:getDevicesRequest" name="getDevicesRequest"/>
+      <wsdl:output message="impl:getDevicesResponse" name="getDevicesResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="updateDevicesList">
+      <wsdl:input message="impl:updateDevicesListRequest" name="updateDevicesListRequest"/>
+      <wsdl:output message="impl:updateDevicesListResponse" name="updateDevicesListResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="updateServiceList">
+      <wsdl:input message="impl:updateServiceListRequest" name="updateServiceListRequest"/>
+      <wsdl:output message="impl:updateServiceListResponse" name="updateServiceListResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="getUser">
+      <wsdl:input message="impl:getUserRequest" name="getUserRequest"/>
+      <wsdl:output message="impl:getUserResponse" name="getUserResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="updateUser">
+      <wsdl:input message="impl:updateUserRequest" name="updateUserRequest"/>
+      <wsdl:output message="impl:updateUserResponse" name="updateUserResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="addUser">
+      <wsdl:input message="impl:addUserRequest" name="addUserRequest"/>
+      <wsdl:output message="impl:addUserResponse" name="addUserResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WedgeManagerSoapBinding" type="impl:WedgeManager">
+    <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="updateService">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="updateServiceRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateServiceResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateDevices">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="updateDevicesRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateDevicesResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateAliasList">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="updateAliasListRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateAliasListResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteUser">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="deleteUserRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="deleteUserResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDevices">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getDevicesRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getDevicesResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateDevicesList">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="updateDevicesListRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateDevicesListResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateServiceList">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="updateServiceListRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateServiceListResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUser">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getUserRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getUserResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateUser">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="updateUserRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateUserResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addUser">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="addUserRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addUserResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addDtvBillingIdProfile">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="addDtvBillingIdProfileRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addDtvBillingIdProfileResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteDtvBillingIdProfile">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="deleteDtvBillingIdProfileRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="deleteDtvBillingIdProfileResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WedgeManagerService">
+    <wsdl:port binding="impl:WedgeManagerSoapBinding" name="WedgeManager">
+      <wsdlsoap:address location="http://localhost:9080/cgate_wedgeWeb/services/WedgeManager"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:9080/cgate_wedgeWeb/services/WedgeManager</con:endpoint></con:endpoints><con:operation isOneWay="false" action="" name="addDtvBillingIdProfile" bindingOperationName="addDtvBillingIdProfile" type="Request-Response" outputName="addDtvBillingIdProfileResponse" inputName="addDtvBillingIdProfileRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9080/cgate_wedgeWeb/services/WedgeManager</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pay="http://payload.wedge.um.idm.sbc.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <pay:addDtvBillingIdProfile>
+         <ctx>
+            <blockTime>?</blockTime>
+            <ivCreds>?</ivCreds>
+            <majorVersion>?</majorVersion>
+            <minorVersion>?</minorVersion>
+            <adminPassword>?</adminPassword>
+            <revision>?</revision>
+            <async>?</async>
+            <adminId>?</adminId>
+         </ctx>
+         <input>
+            <dtv_uban>?</dtv_uban>
+            <dtv_acctNumber>?</dtv_acctNumber>
+         </input>
+      </pay:addDtvBillingIdProfile>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://payload.wedge.um.idm.sbc.com/WedgeManager/addDtvBillingIdProfileRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="" name="addUser" bindingOperationName="addUser" type="Request-Response" outputName="addUserResponse" inputName="addUserRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9080/cgate_wedgeWeb/services/WedgeManager</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pay="http://payload.wedge.um.idm.sbc.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <pay:addUser>
+         <ctx>
+            <blockTime>?</blockTime>
+            <ivCreds>?</ivCreds>
+            <majorVersion>?</majorVersion>
+            <minorVersion>?</minorVersion>
+            <adminPassword>?</adminPassword>
+            <revision>?</revision>
+            <async>?</async>
+            <adminId>?</adminId>
+         </ctx>
+         <input>
+            <userId>?</userId>
+            <slidIndicator>?</slidIndicator>
+            <GUID>?</GUID>
+            <parentMemberId>?</parentMemberId>
+            <password>?</password>
+            <YToken>?</YToken>
+            <services>
+               <!--Zero or more repetitions:-->
+               <Service>
+                  <serviceId>?</serviceId>
+                  <serviceStatus>?</serviceStatus>
+                  <serviceType>?</serviceType>
+                  <portalProvider>?</portalProvider>
+                  <SOR>?</SOR>
+                  <mainCTN>?</mainCTN>
+                  <moSubID>?</moSubID>
+               </Service>
+            </services>
+            <passwordType>?</passwordType>
+            <proofingVersion>?</proofingVersion>
+            <isPasswordDirty>?</isPasswordDirty>
+            <md5Password>?</md5Password>
+            <ctETToken>?</ctETToken>
+            <tosFlag>?</tosFlag>
+            <migrationIndicator>?</migrationIndicator>
+         </input>
+      </pay:addUser>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://payload.wedge.um.idm.sbc.com/WedgeManager/addUserRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="" name="deleteDtvBillingIdProfile" bindingOperationName="deleteDtvBillingIdProfile" type="Request-Response" outputName="deleteDtvBillingIdProfileResponse" inputName="deleteDtvBillingIdProfileRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9080/cgate_wedgeWeb/services/WedgeManager</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pay="http://payload.wedge.um.idm.sbc.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <pay:deleteDtvBillingIdProfile>
+         <ctx>
+            <blockTime>?</blockTime>
+            <ivCreds>?</ivCreds>
+            <majorVersion>?</majorVersion>
+            <minorVersion>?</minorVersion>
+            <adminPassword>?</adminPassword>
+            <revision>?</revision>
+            <async>?</async>
+            <adminId>?</adminId>
+         </ctx>
+         <input>
+            <dtv_uban>?</dtv_uban>
+         </input>
+      </pay:deleteDtvBillingIdProfile>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://payload.wedge.um.idm.sbc.com/WedgeManager/deleteDtvBillingIdProfileRequest"/></con:call></con:operation><con:operation isOneWay="false" action="" name="deleteUser" bindingOperationName="deleteUser" type="Request-Response" outputName="deleteUserResponse" inputName="deleteUserRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9080/cgate_wedgeWeb/services/WedgeManager</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pay="http://payload.wedge.um.idm.sbc.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <pay:deleteUser>
+         <ctx>
+            <blockTime>?</blockTime>
+            <ivCreds>?</ivCreds>
+            <majorVersion>?</majorVersion>
+            <minorVersion>?</minorVersion>
+            <adminPassword>?</adminPassword>
+            <revision>?</revision>
+            <async>?</async>
+            <adminId>?</adminId>
+         </ctx>
+         <input>
+            <userId>?</userId>
+         </input>
+      </pay:deleteUser>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://payload.wedge.um.idm.sbc.com/WedgeManager/deleteUserRequest"/></con:call></con:operation><con:operation isOneWay="false" action="" name="getDevices" bindingOperationName="getDevices" type="Request-Response" outputName="getDevicesResponse" inputName="getDevicesRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9080/cgate_wedgeWeb/services/WedgeManager</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pay="http://payload.wedge.um.idm.sbc.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <pay:getDevices>
+         <ctx>
+            <blockTime>?</blockTime>
+            <ivCreds>?</ivCreds>
+            <majorVersion>?</majorVersion>
+            <minorVersion>?</minorVersion>
+            <adminPassword>?</adminPassword>
+            <revision>?</revision>
+            <async>?</async>
+            <adminId>?</adminId>
+         </ctx>
+         <input>
+            <gDevices>
+               <!--Zero or more repetitions:-->
+               <OnlyDevice>
+                  <deviceId>?</deviceId>
+               </OnlyDevice>
+            </gDevices>
+         </input>
+      </pay:getDevices>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://payload.wedge.um.idm.sbc.com/WedgeManager/getDevicesRequest"/></con:call></con:operation><con:operation isOneWay="false" action="" name="getUser" bindingOperationName="getUser" type="Request-Response" outputName="getUserResponse" inputName="getUserRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9080/cgate_wedgeWeb/services/WedgeManager</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pay="http://payload.wedge.um.idm.sbc.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <pay:getUser>
+         <ctx>
+            <blockTime>?</blockTime>
+            <ivCreds>?</ivCreds>
+            <majorVersion>?</majorVersion>
+            <minorVersion>?</minorVersion>
+            <adminPassword>?</adminPassword>
+            <revision>?</revision>
+            <async>?</async>
+            <adminId>?</adminId>
+         </ctx>
+         <input>
+            <userId>?</userId>
+            <idType>?</idType>
+            <dtv_acctNumber>?</dtv_acctNumber>
+         </input>
+      </pay:getUser>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://payload.wedge.um.idm.sbc.com/WedgeManager/getUserRequest"/></con:call></con:operation><con:operation isOneWay="false" action="" name="updateAliasList" bindingOperationName="updateAliasList" type="Request-Response" outputName="updateAliasListResponse" inputName="updateAliasListRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9080/cgate_wedgeWeb/services/WedgeManager</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pay="http://payload.wedge.um.idm.sbc.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <pay:updateAliasList>
+         <ctx>
+            <blockTime>?</blockTime>
+            <ivCreds>?</ivCreds>
+            <majorVersion>?</majorVersion>
+            <minorVersion>?</minorVersion>
+            <adminPassword>?</adminPassword>
+            <revision>?</revision>
+            <async>?</async>
+            <adminId>?</adminId>
+         </ctx>
+         <input>
+            <SLID>?</SLID>
+            <addAliases>
+               <!--Zero or more repetitions:-->
+               <Alias>
+                  <userId>?</userId>
+               </Alias>
+            </addAliases>
+            <deleteAliases>
+               <!--Zero or more repetitions:-->
+               <Alias>
+                  <userId>?</userId>
+               </Alias>
+            </deleteAliases>
+            <detachAliases>
+               <!--Zero or more repetitions:-->
+               <Alias>
+                  <userId>?</userId>
+               </Alias>
+            </detachAliases>
+         </input>
+      </pay:updateAliasList>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://payload.wedge.um.idm.sbc.com/WedgeManager/updateAliasListRequest"/></con:call></con:operation><con:operation isOneWay="false" action="" name="updateDevices" bindingOperationName="updateDevices" type="Request-Response" outputName="updateDevicesResponse" inputName="updateDevicesRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9080/cgate_wedgeWeb/services/WedgeManager</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pay="http://payload.wedge.um.idm.sbc.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <pay:updateDevices>
+         <ctx>
+            <blockTime>?</blockTime>
+            <ivCreds>?</ivCreds>
+            <majorVersion>?</majorVersion>
+            <minorVersion>?</minorVersion>
+            <adminPassword>?</adminPassword>
+            <revision>?</revision>
+            <async>?</async>
+            <adminId>?</adminId>
+         </ctx>
+         <input>
+            <UDevices>
+               <!--Zero or more repetitions:-->
+               <Device>
+                  <deviceId>?</deviceId>
+                  <userId>?</userId>
+               </Device>
+            </UDevices>
+         </input>
+      </pay:updateDevices>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://payload.wedge.um.idm.sbc.com/WedgeManager/updateDevicesRequest"/></con:call></con:operation><con:operation isOneWay="false" action="" name="updateDevicesList" bindingOperationName="updateDevicesList" type="Request-Response" outputName="updateDevicesListResponse" inputName="updateDevicesListRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9080/cgate_wedgeWeb/services/WedgeManager</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pay="http://payload.wedge.um.idm.sbc.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <pay:updateDevicesList>
+         <ctx>
+            <blockTime>?</blockTime>
+            <ivCreds>?</ivCreds>
+            <majorVersion>?</majorVersion>
+            <minorVersion>?</minorVersion>
+            <adminPassword>?</adminPassword>
+            <revision>?</revision>
+            <async>?</async>
+            <adminId>?</adminId>
+         </ctx>
+         <input>
+            <addDevices>
+               <!--Zero or more repetitions:-->
+               <Device>
+                  <deviceId>?</deviceId>
+                  <userId>?</userId>
+               </Device>
+            </addDevices>
+            <deleteDevices>
+               <!--Zero or more repetitions:-->
+               <OnlyDevice>
+                  <deviceId>?</deviceId>
+               </OnlyDevice>
+            </deleteDevices>
+         </input>
+      </pay:updateDevicesList>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://payload.wedge.um.idm.sbc.com/WedgeManager/updateDevicesListRequest"/></con:call></con:operation><con:operation isOneWay="false" action="" name="updateService" bindingOperationName="updateService" type="Request-Response" outputName="updateServiceResponse" inputName="updateServiceRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9080/cgate_wedgeWeb/services/WedgeManager</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pay="http://payload.wedge.um.idm.sbc.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <pay:updateService>
+         <ctx>
+            <blockTime>?</blockTime>
+            <ivCreds>?</ivCreds>
+            <majorVersion>?</majorVersion>
+            <minorVersion>?</minorVersion>
+            <adminPassword>?</adminPassword>
+            <revision>?</revision>
+            <async>?</async>
+            <adminId>?</adminId>
+         </ctx>
+         <input>
+            <userId>?</userId>
+            <services>
+               <!--Zero or more repetitions:-->
+               <Service>
+                  <serviceId>?</serviceId>
+                  <serviceStatus>?</serviceStatus>
+                  <serviceType>?</serviceType>
+                  <portalProvider>?</portalProvider>
+                  <SOR>?</SOR>
+                  <mainCTN>?</mainCTN>
+                  <moSubID>?</moSubID>
+               </Service>
+            </services>
+         </input>
+      </pay:updateService>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://payload.wedge.um.idm.sbc.com/WedgeManager/updateServiceRequest"/></con:call></con:operation><con:operation isOneWay="false" action="" name="updateServiceList" bindingOperationName="updateServiceList" type="Request-Response" outputName="updateServiceListResponse" inputName="updateServiceListRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9080/cgate_wedgeWeb/services/WedgeManager</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pay="http://payload.wedge.um.idm.sbc.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <pay:updateServiceList>
+         <ctx>
+            <blockTime>?</blockTime>
+            <ivCreds>?</ivCreds>
+            <majorVersion>?</majorVersion>
+            <minorVersion>?</minorVersion>
+            <adminPassword>?</adminPassword>
+            <revision>?</revision>
+            <async>?</async>
+            <adminId>?</adminId>
+         </ctx>
+         <input>
+            <userId>?</userId>
+            <addServices>
+               <!--Zero or more repetitions:-->
+               <Service>
+                  <serviceId>?</serviceId>
+                  <serviceStatus>?</serviceStatus>
+                  <serviceType>?</serviceType>
+                  <portalProvider>?</portalProvider>
+                  <SOR>?</SOR>
+                  <mainCTN>?</mainCTN>
+                  <moSubID>?</moSubID>
+               </Service>
+            </addServices>
+            <deleteServices>
+               <!--Zero or more repetitions:-->
+               <Service>
+                  <serviceId>?</serviceId>
+                  <serviceStatus>?</serviceStatus>
+                  <serviceType>?</serviceType>
+                  <portalProvider>?</portalProvider>
+                  <SOR>?</SOR>
+                  <mainCTN>?</mainCTN>
+                  <moSubID>?</moSubID>
+               </Service>
+            </deleteServices>
+         </input>
+      </pay:updateServiceList>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://payload.wedge.um.idm.sbc.com/WedgeManager/updateServiceListRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="" name="updateUser" bindingOperationName="updateUser" type="Request-Response" outputName="updateUserResponse" inputName="updateUserRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9080/cgate_wedgeWeb/services/WedgeManager</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pay="http://payload.wedge.um.idm.sbc.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <pay:updateUser>
+         <ctx>
+            <blockTime>?</blockTime>
+            <ivCreds>?</ivCreds>
+            <majorVersion>?</majorVersion>
+            <minorVersion>?</minorVersion>
+            <adminPassword>?</adminPassword>
+            <revision>?</revision>
+            <async>?</async>
+            <adminId>?</adminId>
+         </ctx>
+         <input>
+            <userId>?</userId>
+            <password>?</password>
+            <YToken>?</YToken>
+            <passwordType>?</passwordType>
+            <isPasswordDirty>?</isPasswordDirty>
+            <proofingVersion>?</proofingVersion>
+            <md5Password>?</md5Password>
+            <ctETToken>?</ctETToken>
+            <GUID>?</GUID>
+            <migrationIndicator>?</migrationIndicator>
+            <idType>?</idType>
+            <dtv_acctNumber>?</dtv_acctNumber>
+            <dtv_idStatus>?</dtv_idStatus>
+         </input>
+      </pay:updateUser>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://payload.wedge.um.idm.sbc.com/WedgeManager/updateUserRequest"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/></con:soapui-project>
